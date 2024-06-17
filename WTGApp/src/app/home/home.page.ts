@@ -11,8 +11,6 @@ import * as L from 'leaflet';
 export class HomePage {
   map: L.Map | undefined;
 
-  actualMarkers = JSON.parse(localStorage.getItem("markers") || "[]");
-  
   defaultMarkers = [
     {id: 1, city: 'Passo Fundo', address: 'Rua Teste, 1023', name: 'Doações LTDA PF', phone: '(54) 9 9911-1123', email: 'email@email.com', coordLat: "-28.2578", coordLong: "-52.4073"},
     {id: 2, city: 'Porto Alegre', address: 'Rua Teste, 1023', name: 'Doações LTDA POA', phone: '(54) 9 9911-1123', email: 'email@email.com', coordLat: "-30.0629", coordLong: "-51.2026"},
@@ -20,39 +18,25 @@ export class HomePage {
     {id: 4, city: 'Santa Maria', address: 'Rua Teste, 1023', name: 'Doações LTDA SM', phone: '(54) 9 9911-1123', email: 'email@email.com', coordLat: "-29.6864", coordLong: "-53.8140"},
     {id: 5, city: 'Cruz Alta', address: 'Rua Teste, 1023', name: 'Doações LTDA CA', phone: '(54) 9 9911-1123', email: 'email@email.com', coordLat: "-28.6451", coordLong: "-53.6047"},
   ]
+
+  actualMarkers = JSON.parse(localStorage.getItem("markers") || '[]');
   
   constructor(
     private modalController: ModalController,
     // private nav: NavController
   ) {
-    localStorage.setItem("markers", JSON.stringify(this.actualMarkers));
-  }
-  
-  async addNew() {
-    const modal = await this.modalController.create({
-      component: NewMarkerComponent,
-      cssClass: 'my-custom-class',
-    });
-    await modal.present();
-    const newTask = await modal.onDidDismiss();
+    if (localStorage['markers'] === '[]') {
+      localStorage.setItem("markers", JSON.stringify(this.defaultMarkers));
+      location.reload();
+    }
+    else localStorage.setItem("markers", JSON.stringify(this.actualMarkers));
+  };
 
-    if (newTask.data.coordLat != '' ) {
-      this.defaultMarkers.push(newTask.data);
-    };
-    localStorage.setItem("markers", JSON.stringify(this.defaultMarkers));
-
-    location.reload();
-  }
-  
-  // async delete(id: number) {
-  //   this.defaultMarkers = this.defaultMarkers.filter(item => item.id != id);
-  // }
-  
-  ionViewDidEnter() {
+  setMap() {
     this.map = L.map('mapId').setView([-28.2590, -52.3986], 6);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      // attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: 'abcd',
       maxZoom: 20
     }).addTo(this.map);
@@ -82,6 +66,31 @@ export class HomePage {
         `)
       .addTo(this.map);
     }
+  };
+  
+  async addNew() {
+    const modal = await this.modalController.create({
+      component: NewMarkerComponent,
+      cssClass: 'my-custom-class',
+    });
 
-  }
+    await modal.present();
+    const newTask = await modal.onDidDismiss();
+
+    if (newTask.data.coordLat != '' ) {
+      this.defaultMarkers = this.actualMarkers;
+      this.defaultMarkers.push(newTask.data);
+      localStorage.setItem("markers", JSON.stringify(this.defaultMarkers));
+    };
+    
+    location.reload();
+  };
+  
+  ionViewDidEnter() {
+    console.log(this.defaultMarkers)
+    console.log(this.actualMarkers)
+    console.log(localStorage['markers'] === '[]')
+    
+    this.setMap();
+  };
 }
