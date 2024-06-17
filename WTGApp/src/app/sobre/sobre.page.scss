@@ -1,0 +1,42 @@
+/* about.page.scss */
+
+/* Estiliza o cabeçalho */
+ion-header {
+    --background: #333; /* Cor de fundo do cabeçalho */
+    ion-toolbar {
+      --background: #333; /* Cor de fundo da toolbar */
+      ion-title {
+        font-size: 18px; /* Tamanho da fonte do título */
+        color: #fff; /* Cor do texto do título */
+      }
+    }
+  }
+  
+  /* Estiliza o conteúdo */
+  ion-content {
+    --background: #f7f7f7; /* Cor de fundo do conteúdo */
+    padding: 16px; /* Espaçamento interno do conteúdo */
+  }
+  
+  /* Estiliza as cartões */
+  ion-card {
+    margin: 16px; /* Espaçamento externo das cartões */
+    ion-card-header {
+      background-color: #333; /* Cor de fundo do cabeçalho da cartão */
+      ion-card-subtitle {
+        font-size: 14px; /* Tamanho da fonte do subtítulo */
+        color: #fff; /* Cor do texto do subtítulo */
+      }
+      ion-card-title {
+        font-size: 18px; /* Tamanho da fonte do título */
+        color: #fff; /* Cor do texto do título */
+      }
+    }
+    ion-card-content {
+      padding: 16px; /* Espaçamento interno do conteúdo da cartão */
+      p {
+        font-size: 14px; /* Tamanho da fonte do parágrafo */
+        color: #333; /* Cor do texto do parágrafo */
+      }
+    }
+  }
