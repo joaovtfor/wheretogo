@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Novo Cadastro</ion-title>
-    <ion-button (click)="close()" slot="end" style="margin-right: 10px; color: white; background-color: white;">
+    <ion-button (click)="close()" slot="end" color="danger" style="margin-right: 10px;">
       <ion-icon slot="icon-only" name="close-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -37,7 +37,7 @@
     <ion-input [(ngModel)]="marker.coordLong"></ion-input>
   </ion-item>
   <br>
-  <ion-button expand="block" (click)="save()" color="light">Salvar</ion-button>
+  <ion-button expand="block" (click)="save()" color="primary">Salvar</ion-button>
 </ion-content>
 
 
