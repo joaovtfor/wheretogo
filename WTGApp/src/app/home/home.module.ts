@@ -7,14 +7,16 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { NewMarkerComponent } from '../new-marker/new-marker.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
   ],
+  exports: [HeaderComponent],
   declarations: [HomePage, NewMarkerComponent]
 })
+
+export class HeaderComponent {}
 export class HomePageModule {}

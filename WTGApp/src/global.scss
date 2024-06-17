@@ -49,3 +49,20 @@
 .modalTest > span {
   font-size: large;
 }
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  
+}
+
+:root {
+  --bg-color: white;
+  --text-color:#20135b;
+  --main-color: #3C83FA;   
+  --dark: #212529;
+}

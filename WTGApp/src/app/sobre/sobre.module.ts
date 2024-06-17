@@ -6,13 +6,16 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { SobrePage } from './sobre.page';
 import { SobreRoutingModule } from './sobre-routing.module';
+import { HeaderComponent } from '../header/header.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
     IonicModule,
     RouterModule,
-    SobreRoutingModule
+    SobreRoutingModule,
+    HeaderComponent
   ],
   declarations: [SobrePage],
   exports: [SobrePage]
