@@ -10,7 +10,6 @@ export class HeaderComponent  implements OnInit {
   constructor() { }
 
   navLinkEls = document.querySelectorAll('.nav__link');
-
   
   ngOnInit() {
     this.navLinkEls.forEach(navLinkEl => {

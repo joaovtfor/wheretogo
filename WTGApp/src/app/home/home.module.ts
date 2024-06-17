@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
 import { NewMarkerComponent } from '../new-marker/new-marker.component';
+import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   imports: [
@@ -14,9 +15,7 @@ import { NewMarkerComponent } from '../new-marker/new-marker.component';
     IonicModule,
     HomePageRoutingModule,
   ],
-  exports: [HeaderComponent],
-  declarations: [HomePage, NewMarkerComponent]
+  declarations: [HomePage, NewMarkerComponent, HeaderComponent]
 })
 
-export class HeaderComponent {}
 export class HomePageModule {}

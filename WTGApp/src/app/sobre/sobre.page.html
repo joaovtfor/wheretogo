@@ -1,8 +1,19 @@
-<!-- about.page.html -->
-
-<app-header></app-header>
+<header>
+  <a href="#" class="logo"><img src="../../assets/WTGLogo.png" alt="icone" class="icone"></a>
+  <ul class="navbar">
+      <li><a href="#" class="nav__link">Home</a></li>
+      <li><a [routerLink]="['/sobre']" class="nav__link">Sobre</a></li>
+      <li><a href="#" class="nav__link">Contatos</a></li>
+  </ul>
+  <div class="main">
+      <a href="#" class="user"><i class="ri-user-line"></i>Login</a>
+      <a href="#">Register</a>
+      <div class="bx bx-menu" id="menu-icon">
+      </div>
+  </div>
+</header>
   
-<ion-content fullscreen>
+<ion-content style="margin-top: 100px;">
   <ion-grid>
     <ion-row>
       <ion-col size="12">
