@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Novo Cadastro</ion-title>
+    <ion-button (click)="close()" slot="end" style="margin-right: 10px; color: white; background-color: white;">
+      <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="background-color: white; border-radius: 15px;">
+  <ion-item>
+    <ion-label position="floating">Nome:</ion-label>
+    <ion-input [(ngModel)]="marker.name"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Cidade:</ion-label>
+    <ion-input [(ngModel)]="marker.city"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Endereço:</ion-label>
+    <ion-input [(ngModel)]="marker.address"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Telefone:</ion-label>
+    <ion-input [(ngModel)]="marker.phone"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">E-Mail:</ion-label>
+    <ion-input [(ngModel)]="marker.email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Latitude:</ion-label>
+    <ion-input [(ngModel)]="marker.coordLat"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="floating">Longitude:</ion-label>
+    <ion-input [(ngModel)]="marker.coordLong"></ion-input>
+  </ion-item>
+  <br>
+  <ion-button expand="block" (click)="save()" color="light">Salvar</ion-button>
+</ion-content>
+
+
